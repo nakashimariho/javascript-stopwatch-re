@@ -13,15 +13,23 @@ startButton.addEventListener('click', (event)=>{
   time += 100;
   timeArea.innerText = formatTime(time);
   },100);
+  startButton.disabled = true;
+  stopButton.disabled = false;
+  resetButton.desabled = false;
 });
 
 stopButton.addEventListener('click', (event)=>{
   clearInterval(timerId);
   timerId = null;
+  startButton.disabled = false;
+  stopButton.disabled = true;
+  resetButton.disabled = false;
 });
 
 resetButton.addEventListener('click',(event)=>{
-  timeArea.textContent = '00:00:00:000'
+  clearInterval();
+  time = 0;
+  timeArea.textContent = '00:00:00:000';
 })
 
 
